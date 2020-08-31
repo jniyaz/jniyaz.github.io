@@ -7,7 +7,7 @@ export default function About() {
                 <title>About | Niyaz</title>
             </Head>
             <section className="text-gray-700 body-font">
-                <h1 class="text-3xl font-medium title-font text-gray-900 mb-2 text-center">About</h1>
+                <h1 className="text-3xl font-medium title-font text-gray-900 mb-2 text-center">About</h1>
                 <div className="container px-5 py-8 mx-auto flex flex-col">
                     <div className="lg:w-4/6 mx-auto">
                         {/* <div className="rounded-lg h-64 overflow-hidden">
