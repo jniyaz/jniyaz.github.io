@@ -2,6 +2,8 @@ import Link from 'next/link';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
 
+const prefix = "/niyaz-blog";
+
 export default function Post({ post }) {
     return (
         <>
@@ -35,7 +37,7 @@ export default function Post({ post }) {
                                 </span>
                             </div>
                             <a className="inline-flex items-center">
-                                <img alt="blog" src="/niyaz.jpeg" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
+                                <img alt="blog" src={prefix + '/niyaz.jpeg'} className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
                                 <span className="flex-grow flex flex-col pl-4">
                                     <span className="title-font font-medium text-gray-900">Niyaz Jamal</span>
                                     <span className="text-gray-500 text-sm">Full Stack Software Engineer</span>

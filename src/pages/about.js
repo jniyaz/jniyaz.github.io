@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+const prefix = "/niyaz-blog";
+
 export default function About() {
     return (
         <>
@@ -16,7 +18,7 @@ export default function About() {
                         <div className="flex flex-col sm:flex-row mt-10">
                             <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
                                 <a className="inline-flex items-center">
-                                    <img alt="blog" src="/niyaz.jpeg" className="w-24 h-24 rounded-full flex-shrink-0 object-cover object-center" />
+                                    <img alt="blog" src={prefix + '/niyaz.jpeg'} className="w-24 h-24 rounded-full flex-shrink-0 object-cover object-center" />
                                 </a>
                                 <div className="flex flex-col items-center text-center justify-center">
                                     <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">Niyaz Ahamed Jamal</h2>
