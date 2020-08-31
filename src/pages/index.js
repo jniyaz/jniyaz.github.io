@@ -18,10 +18,18 @@ function IndexPage({ posts }) {
   )
 }
 
-IndexPage.getInitialProps = async (ctx) => {
+// Only on Server
+// IndexPage.getInitialProps = async (ctx) => {
+//   const res = await fetch('https://public-api.wordpress.com/wp/v2/sites/niyazjamal.wordpress.com/posts?per_page=10&order=desc')
+//   const json = await res.json()
+//   return { posts: json }
+// }
+
+// This also gets called at build time
+export async function getStaticProps({ params }) {
   const res = await fetch('https://public-api.wordpress.com/wp/v2/sites/niyazjamal.wordpress.com/posts?per_page=10&order=desc')
-  const json = await res.json()
-  return { posts: json }
+  const posts = await res.json()
+  return { props: { posts } }
 }
 
 export default IndexPage;

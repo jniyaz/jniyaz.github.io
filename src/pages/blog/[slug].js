@@ -19,11 +19,35 @@ function BlogDetailPage({ post }) {
     )
 }
 
-BlogDetailPage.getInitialProps = async (ctx) => {
-    const slug = ctx.query.slug;
-    const res = await fetch('https://public-api.wordpress.com/wp/v2/sites/niyazjamal.wordpress.com/posts?slug=' + slug);
-    const json = await res.json();
-    return { post: json[0] }
+
+// This function gets called at build time
+export async function getStaticPaths() {
+    // Call an external API endpoint to get posts
+    const res = await fetch('https://public-api.wordpress.com/wp/v2/sites/niyazjamal.wordpress.com/posts?per_page=10&order=desc')
+    const posts = await res.json()
+
+    const paths = posts.map((post) => ({
+        params: { slug: post.slug },
+    }))
+
+    return { paths, fallback: false }
 }
+
+// This also gets called at build time
+export async function getStaticProps({ params }) {
+    const res = await fetch(`https://public-api.wordpress.com/wp/v2/sites/niyazjamal.wordpress.com/posts?slug=${params.slug}`)
+    const json = await res.json()
+    const post = json[0];
+    // Pass post data to the page via props
+    return { props: { post } }
+}
+
+// Works only with server
+// BlogDetailPage.getInitialProps = async (ctx) => {
+//     const slug = ctx.query.slug;
+//     const res = await fetch('https://public-api.wordpress.com/wp/v2/sites/niyazjamal.wordpress.com/posts?slug=' + slug);
+//     const json = await res.json();
+//     return { post: json[0] }
+// }
 
 export default BlogDetailPage;
