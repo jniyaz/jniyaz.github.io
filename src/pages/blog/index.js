@@ -1,13 +1,10 @@
-import NavBar from "../components/shared/navbar";
-import Cta from "../components/shared/cta";
-import Footer from "../components/shared/footer";
-import Posts from "../components/blog/posts";
+import Posts from "../../components/blog/posts";
 import fetch from 'isomorphic-unfetch';
 
 function BlogHomePage({ posts }) {
     return (
         <section className="text-gray-700 body-font overflow-hidden">
-            <div className="container mx-auto">
+            <div class="container px-6 mx-auto">
                 <Posts posts={posts} />
             </div>
         </section>
