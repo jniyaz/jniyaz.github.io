@@ -4,7 +4,7 @@ import NavBar from "../components/shared/navbar";
 // import Cta from "../components/shared/cta";
 import Footer from "../components/shared/footer";
 import NProgress from 'nprogress';
-import '../styles/index.css';
+import '../static/styles.css';
 
 NProgress.configure({ showSpinner: false });
 
@@ -28,6 +28,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Home | Niyaz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div className="flex flex-col h-screen justify-between">
         <NavBar />
