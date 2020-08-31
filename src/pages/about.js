@@ -28,7 +28,7 @@ export default function About() {
                                     Hi All, Greetings, Hope you all are doing great. <br />
                                 </p>
                                 <p className="leading-relaxed text-lg mb-4">
-                                    I am a full stack developer, software engineer, and designer currently living in Kualalumpur, Malaysia. My interests range from full stack web/mobile development to programming. I am also interested in technology, education, and sports.
+                                    I am a full stack software developer, currently living in Kualalumpur, Malaysia. My interests range from full stack web/mobile development to programming. I am also interested in technology, education, and sports.
                                 </p>
                                 <p className="leading-relaxed text-lg mb-4">
                                     If you’d like to get in touch, feel free to say hello through any of the social links at the bootom.
