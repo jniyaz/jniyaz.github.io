@@ -1,4 +1,4 @@
 module.exports = {
-    basePath: '/niyaz-blog/',
+    basePath: '/niyaz-blog',
     assetPrefix: '/niyaz-blog/'
 }
