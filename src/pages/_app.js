@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Home | Niyaz</title>
       </Head>
       <div className="flex flex-col h-screen justify-between">
         <NavBar />

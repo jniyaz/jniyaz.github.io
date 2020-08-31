@@ -1,13 +1,21 @@
+import Head from 'next/head';
 import Post from "../../components/blog/detail";
 import fetch from 'isomorphic-unfetch';
 
 function BlogDetailPage({ post }) {
     return (
-        <section className="text-gray-700 body-font overflow-hidden">
-            <div className="container px-6 mx-auto">
-                <Post post={post} />
-            </div>
-        </section>
+        <>
+            <Head>
+                <title>{post.title.rendered} | Blog | Niyaz</title>
+                <meta name="keywords" content={post.title.rendered} />
+                <meta name="description" content={post.title.rendered} />
+            </Head>
+            <section className="text-gray-700 body-font overflow-hidden">
+                <div className="container px-6 mx-auto">
+                    <Post post={post} />
+                </div>
+            </section>
+        </>
     )
 }
 

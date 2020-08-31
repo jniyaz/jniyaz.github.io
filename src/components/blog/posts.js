@@ -10,12 +10,15 @@ export default function Posts({ posts }) {
                     <div key={post.id} className="-my-8">
                         <div className="py-8 flex flex-wrap md:flex-no-wrap">
                             <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                                <span className="tracking-widest font-medium title-font text-gray-900">CATEGORY</span>
-                                <span className="mt-1 text-gray-500 text-sm">{post.date}</span>
+                                {/* <span className="tracking-widest font-medium title-font text-gray-900">CATEGORY</span> */}
+                                <span className="mt-1 text-gray-500 text-sm">Author: Niyaz</span>
+                                {/* <span className="mt-1 text-gray-500 text-sm">{post.date}</span> */}
                                 <span className="mt-1 text-gray-500 text-sm">{moment(post.date, "YYYY-MM-DD").fromNow()}</span>
                             </div>
                             <div className="md:flex-grow">
-                                <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{post.title.rendered}</h2>
+                                <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+                                    <h2 className="text-2xl font-medium hover:text-indigo-500 text-gray-900 title-font mb-2">{post.title.rendered}</h2>
+                                </Link>
                                 <div className="leading-relaxed">{ReactHtmlParser(post.excerpt.rendered)}</div>
                                 <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
                                     <a className="text-indigo-500 inline-flex items-center mt-4">Learn More

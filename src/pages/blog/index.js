@@ -1,13 +1,19 @@
+import Head from 'next/head';
 import Posts from "../../components/blog/posts";
 import fetch from 'isomorphic-unfetch';
 
 function BlogHomePage({ posts }) {
     return (
-        <section className="text-gray-700 body-font overflow-hidden">
-            <div class="container px-6 mx-auto">
-                <Posts posts={posts} />
-            </div>
-        </section>
+        <>
+            <Head>
+                <title>Blog | Niyaz</title>
+            </Head>
+            <section className="text-gray-700 body-font overflow-hidden">
+                <div class="container px-6 mx-auto">
+                    <Posts posts={posts} />
+                </div>
+            </section>
+        </>
     )
 }
 
