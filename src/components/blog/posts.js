@@ -2,7 +2,6 @@ import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
 
 export default function Posts({ posts }) {
-
     return (
         <>
             {
@@ -16,7 +15,7 @@ export default function Posts({ posts }) {
                             </div>
                             <div className="md:flex-grow">
                                 <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{post.title.rendered}</h2>
-                                <p className="leading-relaxed">{ReactHtmlParser(post.excerpt.rendered)}</p>
+                                <div className="leading-relaxed">{ReactHtmlParser(post.excerpt.rendered)}</div>
                                 <a className="text-indigo-500 inline-flex items-center mt-4">Learn More
                             <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M5 12h14"></path>
