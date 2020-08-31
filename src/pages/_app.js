@@ -4,7 +4,7 @@ import NavBar from "../components/shared/navbar";
 // import Cta from "../components/shared/cta";
 import Footer from "../components/shared/footer";
 import NProgress from 'nprogress';
-// import '../static/styles.css';
+import '../static/styles.css';
 
 NProgress.configure({ showSpinner: false });
 

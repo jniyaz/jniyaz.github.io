@@ -2,7 +2,7 @@ import Link from 'next/link';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
 
-const prefix = "/niyaz-blog";
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export default function Post({ post }) {
     return (
