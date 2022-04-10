@@ -23,6 +23,7 @@ jobs:
       id: ACTIONS_ALLOW_UNSECURE_COMMANDS
       run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
     
+    - name: Get files..
     - uses: actions/checkout@v2
     
     - name: Use Node.js ${{ matrix.node-version }}
@@ -35,13 +36,12 @@ jobs:
     
     - name: Building project..
       run: npm run build
-      # env:
-      #   NEXT_PUBLIC_BASE_PATH: /niyaz
+
     - name: Export static files..
-    - run: npm run export
-      # env:
-      #   NEXT_PUBLIC_BASE_PATH: /niyaz
-    - run: touch ./out/.nojekyll
+      run: npm run export
+    
+    - name: Add .nojekyll file..
+      run: touch ./out/.nojekyll
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.1
