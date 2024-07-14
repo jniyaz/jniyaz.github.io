@@ -9,83 +9,12 @@ import { usePost } from "@/hooks/blog/usePost";
 import { dateHumanize } from "@/lib/date-helper";
 import { siteConfig } from "@/config/site";
 import Image from "next/image";
-import { SkeletonList } from "@/components/skeleton-list";
 
 interface PostPageProps {
   params: {
     id: string[];
   };
 }
-
-// async function getPostFromParams(params) {
-//   const slug = params?.slug?.join("/")
-//   const post = allPosts.find((post) => post.slugAsParams === slug)
-
-//   if (!post) {
-//     null
-//   }
-
-//   return post
-// }
-
-// export async function generateMetadata({
-//   params,
-// }: PostPageProps): Promise<Metadata> {
-//   const post = await getPostFromParams(params)
-
-//   if (!post) {
-//     return {}
-//   }
-
-//   const url = env.NEXT_PUBLIC_APP_URL
-
-//   const ogUrl = new URL(`${url}/api/og`)
-//   ogUrl.searchParams.set("heading", post.title)
-//   ogUrl.searchParams.set("type", "Blog Post")
-//   ogUrl.searchParams.set("mode", "dark")
-
-//   return {
-//     title: post.title,
-//     description: post.description,
-//     authors: post.authors.map((author) => ({
-//       name: author,
-//     })),
-//     openGraph: {
-//       title: post.title,
-//       description: post.description,
-//       type: "article",
-//       url: absoluteUrl(post.slug),
-//       images: [
-//         {
-//           url: ogUrl.toString(),
-//           width: 1200,
-//           height: 630,
-//           alt: post.title,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title: post.title,
-//       description: post.description,
-//       images: [ogUrl.toString()],
-//     },
-//   }
-// }
-
-// export async function generateStaticParams(): Promise<
-//   PostPageProps["params"][]
-// > {
-//   return allPosts.map((post) => ({
-//     slug: post.slugAsParams.split("/"),
-//   }))
-// }
-
-// interface PostPageProps {
-//   params: {
-//     id: string[];
-//   };
-// }
 
 export default function PostPage({ params }: PostPageProps) {
   const { isLoading, post } = usePost(params.id[0]);
@@ -143,17 +72,7 @@ export default function PostPage({ params }: PostPageProps) {
                 </Link>
               </div>
             </div>
-            {/* {post.image && (
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={720}
-          height={405}
-          className="my-8 rounded-md border bg-muted transition-colors"
-          priority
-        />
-      )} */}
-            {/* <Mdx code={post.body  .code} /> */}
+
             <hr className="my-4" />
             <div
               dangerouslySetInnerHTML={{ __html: post.content.rendered }}
