@@ -3,17 +3,28 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { api } from "@/config/api";
+import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
-import { buttonVariants } from "@/components/ui/button";
 import { usePost } from "@/hooks/blog/usePost";
 import { dateHumanize } from "@/lib/date-helper";
-import { siteConfig } from "@/config/site";
 import Image from "next/image";
+import { buttonVariants } from "@/components/ui/button";
 
 interface PostPageProps {
   params: {
     id: string[];
   };
+}
+
+export async function generateStaticParams(): Promise<
+  PostPageProps["params"][]
+> {
+  const { WP_BLOG_BASE_URL } = api;
+  const posts = await fetch(WP_BLOG_BASE_URL).then((res) => res.json());
+  return posts.map((post: any) => ({
+    id: post.id,
+  }));
 }
 
 export default function PostPage({ params }: PostPageProps) {
@@ -72,7 +83,17 @@ export default function PostPage({ params }: PostPageProps) {
                 </Link>
               </div>
             </div>
-
+            {/* {post.image && (
+        <Image
+          src={post.image}
+          alt={post.title}
+          width={720}
+          height={405}
+          className="my-8 rounded-md border bg-muted transition-colors"
+          priority
+        />
+      )} */}
+            {/* <Mdx code={post.body  .code} /> */}
             <hr className="my-4" />
             <div
               dangerouslySetInnerHTML={{ __html: post.content.rendered }}
