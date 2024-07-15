@@ -1,34 +1,41 @@
-"use client";
-
+// "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { api } from "@/config/api";
 import { siteConfig } from "@/config/site";
 import { Icons } from "@/components/icons";
-import { usePost } from "@/hooks/blog/usePost";
+// import { usePost } from "@/hooks/blog/usePost";
 import { dateHumanize } from "@/lib/date-helper";
-import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 
+export const dynamicParams = true;
+
 interface PostPageProps {
-  params: {
-    id: string[];
-  };
+  params: { id: string };
 }
 
-export async function generateStaticParams(): Promise<
-  PostPageProps["params"][]
-> {
-  const { WP_BLOG_BASE_URL } = api;
-  const posts = await fetch(WP_BLOG_BASE_URL).then((res) => res.json());
+// Generate segment for articles
+export async function generateStaticParams() {
+  const posts = await fetch(`${api.WP_BLOG_BASE_URL}/posts`).then((res) =>
+    res.json()
+  );
+
   return posts.map((post: any) => ({
-    id: post.id,
+    id: post.id.toString(),
   }));
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const { isLoading, post } = usePost(params.id[0]);
+export default async function PostPage({ params }: PostPageProps) {
+  // using swr
+  // const { isLoading, post } = usePost(params.id[0]);
+
+  const res = await fetch(`${api.WP_BLOG_BASE_URL}/posts/${params.id}`, {
+    next: { revalidate: 60, tags: ["collection"] },
+  });
+
+  const post = (await res.json()) as any;
 
   return (
     <>
@@ -44,8 +51,8 @@ export default function PostPage({ params }: PostPageProps) {
           See all posts
         </Link>
 
-        {/* {isLoading && <SkeletonList />} */}
-        {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
+        {/* {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />} */}
+
         {post && (
           <>
             <div>
