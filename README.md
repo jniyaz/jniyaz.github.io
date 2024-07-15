@@ -1,4 +1,4 @@
-## Profile - github site
+## Profile - Github site
 
 First, run the development server:
 
