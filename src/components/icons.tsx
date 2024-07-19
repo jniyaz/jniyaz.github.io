@@ -21,6 +21,7 @@ import {
   SunMedium,
   Trash,
   Twitter,
+  Menu,
   User,
   X,
   Code,
@@ -70,4 +71,5 @@ export const Icons = {
   ),
   twitter: Twitter,
   check: Check,
+  menu: Menu,
 };

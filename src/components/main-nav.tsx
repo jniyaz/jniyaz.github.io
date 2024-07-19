@@ -30,10 +30,6 @@ export function MainNav({ items, children }: MainNavProps) {
           height={20}
           alt={siteConfig.name}
         />
-        {/* <Icons.logo /> */}
-        {/* <span className="hidden font-bold sm:inline-block">
-          {siteConfig.name}
-        </span> */}
       </Link>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
@@ -69,7 +65,7 @@ export function MainNav({ items, children }: MainNavProps) {
             alt={siteConfig.name}
           />
         )}
-        <span className="font-bold">Menu</span>
+        <Icons.menu />
       </button>
       {showMobileMenu && items && (
         <MobileNav items={items}>{children}</MobileNav>
