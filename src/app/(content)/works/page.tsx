@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "Works",
+  title: "Works & Expertise",
 };
 
 export default function WorksPage() {
@@ -26,8 +26,8 @@ export default function WorksPage() {
             Works
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            I constantly try to improve skill sets, my primary languages and
-            tools are..
+            I constantly strive to improve my skill set; my primary languages
+            and tools are:
           </p>
         </div>
 
@@ -35,7 +35,7 @@ export default function WorksPage() {
           <CardHeader className="flex flex-row items-start bg-muted/50">
             <div className="grid gap-0.5">
               <CardTitle className="group flex items-center gap-2 text-lg">
-                My primary languages and tools,
+              Technical Expertise with the following stack,
               </CardTitle>
               <CardDescription>
                 A software professional with over a decade of experience,
@@ -58,12 +58,12 @@ export default function WorksPage() {
           </CardHeader>
           <CardContent className="p-6 text-sm">
             <div className="grid gap-3">
-              <div className="font-semibold">Front-end Applications</div>
+              <div className="font-semibold">Front-end Apps</div>
               <ul className="grid gap-3">
                 <li className="flex items-center justify-between">
                   <span className="text-muted-foreground">
-                    JavaScript, TypeScript, React, Next, Vue, Nuxt, Quasar,
-                    Alpine, Redux, Pinia, Tanstack Query and more
+                    JavaScript, TypeScript, React, Next, Vue, Alpine, Redux,
+                    Pinia and others
                   </span>
                 </li>
               </ul>
@@ -75,7 +75,7 @@ export default function WorksPage() {
                 <ul className="grid">
                   <li className="flex items-center justify-between">
                     <span className="text-muted-foreground">
-                      Node, Express, Laravel, PHP, Yii, Go, and more
+                      Node, Nest.js, Express, Laravel, Yii2, Php and others
                     </span>
                   </li>
                 </ul>
@@ -102,7 +102,7 @@ export default function WorksPage() {
                 <li className="flex items-center justify-between">
                   <span className="text-muted-foreground">
                     3rd part services integrations - Appwrite, Supabase,
-                    Firebase and more
+                    Firebase and others
                   </span>
                 </li>
               </ul>
@@ -113,7 +113,7 @@ export default function WorksPage() {
               <ul className="grid">
                 <li className="flex items-center justify-between">
                   <span className="text-muted-foreground">
-                    Tailwind, Shadcn, Nativewind, Vuetify, Mui and more
+                    Tailwind, Shadcn, Nativewind, Vuetify, Mui and others
                   </span>
                 </li>
               </ul>
@@ -124,7 +124,7 @@ export default function WorksPage() {
               <ul className="grid">
                 <li className="flex items-center justify-between">
                   <span className="text-muted-foreground">
-                    Docker, Kubernetes, Kafka, Google Cloud, AWS and more
+                    Docker, Kubernetes, Kafka, Google Cloud, AWS and others
                   </span>
                 </li>
               </ul>
@@ -132,7 +132,7 @@ export default function WorksPage() {
           </CardContent>
           <CardFooter className="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
             <div className="text-xs text-muted-foreground">
-              Updated <time dateTime="2023-11-23">July 13, 2024</time>
+              Updated on <time dateTime="2023-11-23">September 08, 2024</time>
             </div>
           </CardFooter>
         </Card>

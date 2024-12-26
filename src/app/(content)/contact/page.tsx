@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: "Contact",
@@ -22,12 +23,28 @@ export default function ContactPage() {
           your goals.
         </p>
         <div className="space-x-4">
-          <a
-            href="mailto:n-labs@outlook.com"
-            className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+          <Link
+            href={siteConfig.links.linkedin}
+            rel="noreferrer"
+            target="_blank"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "text-gray-700 dark:text-gray-400"
+            )}
           >
-            Let's get in touch
-          </a>
+            Let's Connect
+          </Link>
+          <Link
+            href={siteConfig.links.github}
+            target="_blank"
+            rel="noreferrer"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "text-gray-700 dark:text-gray-400"
+            )}
+          >
+            {"Follow"}
+          </Link>
         </div>
       </div>
     </section>

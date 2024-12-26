@@ -59,9 +59,9 @@ export const metadata = {
     creator: "@niyaz_dev",
   },
   icons: {
-    icon: "/logo.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   // manifest: `${siteConfig.url}/site.webmanifest`,
 };
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontHeading.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
+         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>
